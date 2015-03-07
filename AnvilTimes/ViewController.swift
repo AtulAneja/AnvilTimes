@@ -23,20 +23,30 @@ class ViewController: UIViewController {
         request.HTTPMethod = "GET"
        // println(Alamofire.request(.GET, "http://httpbin.org/get"))
        // request.URL =  as NSURL
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
-            println("AsSynchronous\(jsonResult)")
-
-            if (jsonResult != nil) {
-                // process jsonResult
-                println("AsSynchronous\(jsonResult)")
-            } else {
-                // couldn't load JSON, look at error
+//        
+//        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+//            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+//            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+//            println("AsSynchronous\(jsonResult)")
+//
+//            if (jsonResult != nil) {
+//                // process jsonResult
+//                println("AsSynchronous\(jsonResult)")
+//            } else {
+//                // couldn't load JSON, look at error
+//            }
+//            
+//            
+//        })
+       
+        
+            Alamofire.request(.GET, "https://api.context.io/2.0/accounts/54fb32f0facadd69263c2abc/contacts/khanna17@purdue.edu/messages", parameters: ["limit":"100" ])
+                .response { (request, response, data, error) in
+                    println(request)
+                    println(response)
+                    println(data)
+                    println(error)
             }
-            
-            
-        })
         
         let eventStore = EKEventStore()
         
@@ -59,6 +69,7 @@ class ViewController: UIViewController {
             println("Case Default")
         }
     }
+  
     
     func insertEvent(store: EKEventStore) {
    
