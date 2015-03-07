@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/Sherstein/Desktop/Projects/AnvilTimes/DerivedData/AnvilTimes/Build/Products/Debug/Alamofire.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/Sherstein/Desktop/Projects/AnvilTimes/DerivedData/AnvilTimes/Build/Intermediates/Alamofire.build/Debug/Alamofire OSX.build/unextended-module.modulemap',
+    }]
+  }]
+}

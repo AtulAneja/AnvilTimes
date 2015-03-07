@@ -8,14 +8,35 @@
 
 import UIKit
 import EventKit
+import Foundation
 
 class ViewController: UIViewController {
+    var url : String = "http://google.com?test=toto&test2=titi"
+    var request : NSMutableURLRequest = NSMutableURLRequest()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //println("here")
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            println("AsSynchronous\(jsonResult)")
+
+            if (jsonResult != nil) {
+                // process jsonResult
+                println("AsSynchronous\(jsonResult)")
+            } else {
+                // couldn't load JSON, look at error
+            }
+            
+            
+        })
         
         let eventStore = EKEventStore()
-        
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
         case .Authorized:
@@ -41,10 +62,10 @@ class ViewController: UIViewController {
    
         let calendars = store.calendarsForEntityType(EKEntityTypeEvent)
             as [EKCalendar]
-        
+       
         for calendar in calendars {
-     
-            if calendar.title == "ioscreator" {
+            //println(calendar.title)
+            if calendar.title == "Home" || calendar.title ==  "Work" {
             
                 let startDate = NSDate() //current time
                 
@@ -58,6 +79,7 @@ class ViewController: UIViewController {
                 event.startDate = startDate
                 event.endDate = endDate
                 
+                
              
                 // Save Event in Calendar
                 var error: NSError?
@@ -68,9 +90,14 @@ class ViewController: UIViewController {
                         println("An error occured \(theError)")
                     }
                 }
+                //println(store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: nil))
             }
         }
     }
+    //var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+    //println("AsSynchronous\(jsonResult)")
+   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
