@@ -13,6 +13,8 @@
 		21925E751AAACCC0002C66E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21925E741AAACCC0002C66E2 /* Images.xcassets */; };
 		21925E781AAACCC0002C66E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21925E761AAACCC0002C66E2 /* LaunchScreen.xib */; };
 		21925E841AAACCC0002C66E2 /* AnvilTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21925E831AAACCC0002C66E2 /* AnvilTimesTests.swift */; };
+		21E419F21AAADD87001505A5 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E419F11AAADD87001505A5 /* EventKit.framework */; };
+		21E419F41AAADD8E001505A5 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E419F31AAADD8E001505A5 /* EventKitUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		21925E7D1AAACCC0002C66E2 /* AnvilTimesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnvilTimesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21925E821AAACCC0002C66E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21925E831AAACCC0002C66E2 /* AnvilTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnvilTimesTests.swift; sourceTree = "<group>"; };
+		21E419F11AAADD87001505A5 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		21E419F31AAADD8E001505A5 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E419F41AAADD8E001505A5 /* EventKitUI.framework in Frameworks */,
+				21E419F21AAADD87001505A5 /* EventKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,8 @@
 		21925E5F1AAACCBF002C66E2 = {
 			isa = PBXGroup;
 			children = (
+				21E419F31AAADD8E001505A5 /* EventKitUI.framework */,
+				21E419F11AAADD87001505A5 /* EventKit.framework */,
 				21925E6A1AAACCBF002C66E2 /* AnvilTimes */,
 				21925E801AAACCC0002C66E2 /* AnvilTimesTests */,
 				21925E691AAACCBF002C66E2 /* Products */,
@@ -407,6 +415,7 @@
 				21925E891AAACCC0002C66E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21925E8A1AAACCC0002C66E2 /* Build configuration list for PBXNativeTarget "AnvilTimesTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				21925E8C1AAACCC0002C66E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
