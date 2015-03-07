@@ -8,6 +8,7 @@
 
 import UIKit
 import EventKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

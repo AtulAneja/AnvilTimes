@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import Foundation
+import Alamofire
 
 class ViewController: UIViewController {
     var url : String = "http://google.com?test=toto&test2=titi"
@@ -18,9 +19,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //println("here")
-        request.URL = NSURL(string: url)
+        request.URL = NSURL(string: "http://httpbin.org/get")
         request.HTTPMethod = "GET"
-        
+       // println(Alamofire.request(.GET, "http://httpbin.org/get"))
+       // request.URL =  as NSURL
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
